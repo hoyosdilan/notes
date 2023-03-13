@@ -27,6 +27,23 @@ How can you create a variable?
 - **uint32**: 32 bits
 - **string**: UTF-8
 
+####Constants:
+It can saves gas cost.
+
+    address public constant MY_ADDRESS = 0x777788889999AaAAbBbbCcccddDdeeeEfFFfCcCc;
+
+####Immutable:
+
+Inmutable variables are like constants. Values of immutable variables can be set inside the constructor but cannot be modified afterwards:
+
+    address public immutable MY_ADDRESS;
+    uint public immutable MY_UINT;
+
+    constructor(uint _myUint) {
+        MY_ADDRESS = msg.sender;
+        MY_UINT = _myUint;
+    }
+
 ####Math
 
 Basic Operators:
@@ -76,4 +93,52 @@ You can specify what is the access to an array:
 
 This means that Solidity will create a getter method for it.
 
+#### Types of variables:
+
+- Local:
+  - Declared inside a function.
+  - Nor stored on the blockchain.
+
+- State:
+  - Declared outside a function.
+  - Stored on the blockchain.
+
+- Global:
+  - Provides informaiton about the blockchain e.g. msg.sender.
+
+#### Ether and Wei
+
+Similar to how one dollar is equal to 100 cent, one ether is equal to 1018 wei.
+
+    // SPDX-License-Identifier: MIT
+    pragma solidity ^0.8.17;
+
+    contract EtherUnits {
+        uint public oneWei = 1 wei;
+        // 1 wei is equal to 1
+        bool public isOneWei = 1 wei == 1;
+
+        uint public oneEther = 1 ether;
+        // 1 ether is equal to 10^18 wei
+        bool public isOneEther = 1 ether == 1e18;
+    }
+
+#### Gas
+How is calculated?
+- Gas spent: is the total amount of gas used in a transaction.
+- Gas price: is how much ether you are willing to pay per gas.
+
+Gas limit
+- Gas Limit: you set it, max amount of gas you're willing to use.
+- block gas limit: max amount of gas allowed in a block, set by the network.
+
+
+#### If/else
+
+it is the same as it's in Js, also there is the ternary operator.
+
+
 #### Function declaration
+
+
+??? https://solidity-by-example.org/state-variables/
